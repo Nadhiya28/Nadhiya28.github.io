@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadhiya S - Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .hero .contact-info a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            background: white;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Experience & Projects */
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .timeline-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education */
+        .education-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-item h3 {
+            color: #667eea;
+        }
+
+        .education-item p {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #667eea;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Nadhiya S</h1>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Nadhiya S</h2>
+        <p>Data Analyst | Web Developer | Problem Solver</p>
+        <p style="font-size: 1rem; max-width: 800px; margin: 0 auto;">Motivated Computer Technology graduate specializing in data analysis, web development, and technical support. Passionate about leveraging data-driven insights to solve complex business challenges.</p>
+        <div class="contact-info">
+            <a href="mailto:nadhiyaa44@gmail.com">📧 nadhiyaa44@gmail.com</a>
+            <a href="tel:+919025241046">📱 +91 9025241046</a>
+            <a href="https://www.linkedin.com/in/nadhiyaas-" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/Nadhiya28" target="_blank">💻 GitHub</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I'm a passionate Computer Technology graduate from Dr. N.G.P Arts and Science College, Coimbatore, with a strong foundation in data analysis, web development, and technical support. My goal is to contribute to operational excellence while continuously learning and growing in a dynamic consulting environment.</p>
+            <p style="margin-top: 1rem;">📍 Based in Coimbatore, Tamil Nadu</p>
+            <p>🌐 Languages: English & Tamil (Fluent)</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <ul>
+                    <li>C / C++</li>
+                    <li>Java</li>
+                    <li>SQL</li>
+                    <li>HTML / CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Data & Analytics</h3>
+                <ul>
+                    <li>Power BI</li>
+                    <li>Tableau</li>
+                    <li>Microsoft Excel</li>
+                    <li>SQL Database Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Core Competencies</h3>
+                <ul>
+                    <li>Incident Response</li>
+                    <li>Troubleshooting</li>
+                    <li>Technical Support</li>
+                    <li>Client Communication</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Communication</li>
+                    <li>Problem-solving</li>
+                    <li>Adaptability</li>
+                    <li>Time Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Internship Experience</h2>
+        <div class="timeline-item">
+            <h3>Web Development Intern</h3>
+            <span class="date">Prodigy InfoTech | April - May 2025</span>
+            <ul>
+                <li>Developed 5+ websites including e-commerce, blog, and news platforms, demonstrating versatility in project delivery</li>
+                <li>Troubleshot technical issues and optimized performance, reducing load times through HTML, CSS, JavaScript best practices</li>
+                <li>Documented technical processes and created guides to simplify complex concepts for non-technical stakeholders</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="timeline-item">
+            <h3>Sales Data Analysis and Dashboard</h3>
+            <ul>
+                <li>Analyzed 1000+ sales records using SQL to identify trends and performance metrics</li>
+                <li>Created Power BI dashboards visualizing key insights, enabling data-driven business decisions</li>
+                <li>Identified top-performing products and provided recommendations to improve revenue by 15%</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <h3>IT Support System Simulation</h3>
+            <ul>
+                <li>Designed ticketing system prototype to track technical incidents, improving response time tracking by 40%</li>
+                <li>Categorized 50+ simulated incidents by severity, developing systematic troubleshooting workflows</li>
+                <li>Created incident reports and root cause analysis, identifying common issues and preventive measures</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>B.Sc. Computer Technology</h3>
+            <p><strong>Dr. N.G.P Arts and Science College, Coimbatore</strong></p>
+            <p>July 2023 - Present</p>
+        </div>
+        <div class="education-item">
+            <h3>Higher Secondary (12th Grade)</h3>
+            <p><strong>Kongu Vellalar Matric. Hr. Sec. School, Coimbatore</strong></p>
+            <p>Completed: April 2023</p>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h3>Microsoft Azure SQL</h3>
+                <p>Microsoft</p>
+            </div>
+            <div class="cert-card">
+                <h3>Technical Support Fundamentals</h3>
+                <p>Google (Coursera)</p>
+            </div>
+            <div class="cert-card">
+                <h3>IBM Data Topology</h3>
+                <p>IBM</p>
+            </div>
+            <div class="cert-card">
+                <h3>Solution Architecture Job Simulation</h3>
+                <p>AWS APAC (Forage)</p>
+            </div>
+        </div>
+        <div style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; text-align: center;">
+            <h3 style="color: #667eea; margin-bottom: 0.5rem;">📚 Publication</h3>
+            <p><strong>"Unveiling the AI Epoch: Origins to the Next Frontier"</strong></p>
+            <p style="color: #666;">ISBN: 978-93-340-4213-9</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">I'm always open to new opportunities and collaborations!</p>
+        <div class="contact-links">
+            <a href="mailto:nadhiyaa44@gmail.com" class="contact-btn">Email Me</a>
+            <a href="https://www.linkedin.com/in/nadhiyaas-" target="_blank" class="contact-btn">LinkedIn</a>
+            <a href="https://github.com/Nadhiya28" target="_blank" class="contact-btn">GitHub</a>
+            <a href="tel:+919025241046" class="contact-btn">Call Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nadhiya S. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Built with HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
